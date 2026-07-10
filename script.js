@@ -291,8 +291,7 @@ onScroll();
 
 
 // Contact form submission with AJAX (if backend is set up)
-
- const Form = document.getElementById('contact-form');
+const Form = document.getElementById('contact-form');
 const fNote = document.getElementById('form-note');
 
 if (Form) {
@@ -304,23 +303,29 @@ if (Form) {
     showNote('sending...', 'info');
 
     try {
-      const res = await fetch('contact-handler.php', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        body: new FormData(Form)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: Form.name.value,
+          email: Form.email.value,
+          message: Form.message.value,
+        })
       });
       const data = await res.json();
 
-        if (data.success) {
-      showNote("message sent — I'll get back to you soon!", 'success');
-      showToast("Message sent successfully!", 'success');
-      Form.reset();
-    } else {
-      const errText = data.error || data.db_error || data.mail_error || 'something went wrong';
-      showNote(errText, 'error');
-      showToast(errText, 'error');
-    }
+      if (data.success) {
+        showNote("message sent — I'll get back to you soon!", 'success');
+        showToast("Message sent successfully!", 'success');
+        Form.reset();
+      } else {
+        const errText = data.error || 'something went wrong';
+        showNote(errText, 'error');
+        showToast(errText, 'error');
+      }
     } catch (err) {
       showNote('network error — please try again', 'error');
+      showToast('network error — please try again', 'error');
     } finally {
       submitBtn.disabled = false;
     }
