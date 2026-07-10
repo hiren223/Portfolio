@@ -467,6 +467,11 @@ a {
   color: var(--fn);
 }
 
+.btn-cv{
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-cv i{ font-size: 15px; }
+
 .hero-stats {
   display: flex;
   gap: 32px;
