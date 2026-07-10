@@ -72,7 +72,6 @@ if(themeToggle){
   resize();
   window.addEventListener('resize', resize);
 
-  // ---- Network graph nodes ----
   const NODE_COUNT = Math.round((window.innerWidth * window.innerHeight) / 55000);
   const nodes = Array.from({ length: Math.max(30, Math.min(NODE_COUNT, 50)) }, () => ({
     x: Math.random() * w,
@@ -83,7 +82,6 @@ if(themeToggle){
   }));
   const LINK_DIST = 150;
 
-  // ---- Floating code / data tokens ----
   const TOKENS = [
     '{ }', '</>', 'def', 'import pandas as pd', 'SELECT * FROM data',
     'R\u00B2', 'ROC-AUC', '[ ]', '\u03BB', 'while True:', 'GET /api/v1',
@@ -110,7 +108,6 @@ if(themeToggle){
   function draw(){
     ctx.clearRect(0, 0, w, h);
 
-    // -- links --
     const lineColor = getVar('--border') || '#232b38';
     for(let i = 0; i < nodes.length; i++){
       for(let j = i + 1; j < nodes.length; j++){
@@ -129,7 +126,6 @@ if(themeToggle){
       }
     }
 
-    // -- nodes --
     const nodeColor = getVar('--fn') || '#82aaff';
     ctx.globalAlpha = 0.55;
     ctx.fillStyle = nodeColor;
@@ -143,7 +139,6 @@ if(themeToggle){
       if(n.y < 0 || n.y > h) n.vy *= -1;
     });
 
-    // -- floating tokens --
     ctx.textBaseline = 'middle';
     tokens.forEach((t, idx) => {
       ctx.globalAlpha = t.opacity;
@@ -190,29 +185,6 @@ function typeChar(){
 }
 setTimeout(typeChar, 600);
 
-// Contact form -> opens mail client with prefilled content
-const contactForm = document.getElementById('contact-form');
-const formNote = document.getElementById('form-note');
-if(contactForm){
-  contactForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = contactForm.name.value.trim();
-    const email = contactForm.email.value.trim();
-    const message = contactForm.message.value.trim();
-    const targetEmail = document.getElementById('contact-email')?.textContent.trim();
-
-    if(!targetEmail || targetEmail.includes('PUT_E')){
-      formNote.textContent = '// add your real email in index.html to enable this form';
-      return;
-    }
-
-    const subject = encodeURIComponent(`Portfolio contact from ${name}`);
-    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-    window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
-    formNote.textContent = '>>> opening your email client...';
-  });
-}
-
 // Mobile nav burger toggle
 const navBurger = document.getElementById("nav-burger");
 const navTabs = document.getElementById("nav-tabs");
@@ -223,19 +195,18 @@ if (navBurger && navTabs) {
     navTabs.classList.add("open");
     navBurger.classList.add("open");
     navBurger.setAttribute("aria-expanded", "true");
-    document.body.classList.add("nav-open"); // Lock body scroll
+    document.body.classList.add("nav-open");
   }
 
   function closeMenu() {
     navTabs.classList.remove("open");
     navBurger.classList.remove("open");
     navBurger.setAttribute("aria-expanded", "false");
-    document.body.classList.remove("nav-open"); // Unlock body scroll
+    document.body.classList.remove("nav-open");
   }
 
   navBurger.addEventListener("click", (e) => {
     e.stopPropagation();
-
     if (navTabs.classList.contains("open")) {
       closeMenu();
     } else {
@@ -243,14 +214,12 @@ if (navBurger && navTabs) {
     }
   });
 
-  // Close menu when nav link clicked
   navTabs.querySelectorAll(".tab").forEach((tab) => {
     tab.addEventListener("click", () => {
       closeMenu();
     });
   });
 
-  // Close menu when clicking outside
   document.addEventListener("click", (e) => {
     if (
       navTabs.classList.contains("open") &&
@@ -262,7 +231,6 @@ if (navBurger && navTabs) {
   });
 }
 
-
 // Active section highlight
 const sections = document.querySelectorAll("section[id]");
 const tabs = document.querySelectorAll(".tab");
@@ -272,7 +240,6 @@ function onScroll() {
 
   sections.forEach((sec) => {
     const rect = sec.getBoundingClientRect();
-
     if (rect.top <= 120) {
       current = sec.id;
     }
@@ -289,8 +256,7 @@ function onScroll() {
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
-
-// Contact form submission with AJAX (if backend is set up)
+// Contact form submission (Vercel serverless function)
 const Form = document.getElementById('contact-form');
 const fNote = document.getElementById('form-note');
 
@@ -335,7 +301,7 @@ if (Form) {
 function showNote(text, type) {
   fNote.textContent = '>>> ' + text;
   fNote.classList.remove('note-success', 'note-error', 'note-visible');
-  void fNote.offsetWidth; // restart animation
+  void fNote.offsetWidth;
   if (type === 'success') fNote.classList.add('note-success');
   if (type === 'error') fNote.classList.add('note-error');
   fNote.classList.add('note-visible');
