@@ -307,6 +307,41 @@ function showNote(text, type) {
   fNote.classList.add('note-visible');
 }
 
+// ===================== SITE LOADER =====================
+(function initLoader(){
+  const loader = document.getElementById('site-loader');
+  if(!loader) return;
+
+  const bar = document.getElementById('loader-bar');
+  const percentText = document.getElementById('loader-percent');
+
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += Math.random() * 14 + 5;
+    if(progress >= 100){
+      progress = 100;
+      clearInterval(interval);
+    }
+    bar.style.width = progress + '%';
+    percentText.textContent = Math.floor(progress) + '%';
+  }, 120);
+
+  const minTime = new Promise(resolve => setTimeout(resolve, 1000));
+  const pageLoaded = new Promise(resolve => {
+    if(document.readyState === 'complete') resolve();
+    else window.addEventListener('load', resolve);
+  });
+
+  Promise.all([minTime, pageLoaded]).then(() => {
+    bar.style.width = '100%';
+    percentText.textContent = '100%';
+    setTimeout(() => {
+      loader.classList.add('loader-hidden');
+      setTimeout(() => loader.remove(), 500);
+    }, 200);
+  });
+})();
+
 // ===================== TOAST NOTIFICATIONS =====================
 function showToast(text, type = 'success', duration = 4000){
   const container = document.getElementById('toast-container');

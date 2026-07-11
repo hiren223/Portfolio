@@ -18,6 +18,18 @@
   </head>
   <body>
     <canvas id="bg-canvas"></canvas>
+    <div id="site-loader" class="site-loader">
+  <div class="loader-box">
+    <img src="logo.png" alt="logo" class="loader-logo-img">
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill" id="loader-bar"></div>
+    </div>
+    <p class="loader-status">
+      <span class="prompt">$</span> loading<span class="loader-dots"></span>
+      <span class="loader-percent" id="loader-percent">0%</span>
+    </p>
+  </div>
+</div>
     <div id="toast-container" class="toast-container"></div>
     <div class="page">
       <!-- ================= NAV / EDITOR TOP BAR ================= -->
