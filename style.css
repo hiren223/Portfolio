@@ -983,7 +983,7 @@ a {
 .footer {
   text-align: center;
   padding: 30px 24px 50px;
-  color: var(--muted);
+  color: var(--str);
   font-size: 12.5px;
   font-family: var(--font-mono);
   border-top: 2px solid var(--border);
