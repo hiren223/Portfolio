@@ -19,17 +19,17 @@
   <body>
     <canvas id="bg-canvas"></canvas>
     <div id="site-loader" class="site-loader">
-  <div class="loader-box">
-    <img src="logo.png" alt="logo" class="loader-logo-img">
-    <div class="loader-bar-track">
-      <div class="loader-bar-fill" id="loader-bar"></div>
+      <div class="loader-box">
+        <img src="logo.png" alt="logo" class="loader-logo-img" />
+        <div class="loader-bar-track">
+          <div class="loader-bar-fill" id="loader-bar"></div>
+        </div>
+        <p class="loader-status">
+          <span class="prompt">$</span> loading<span class="loader-dots"></span>
+          <span class="loader-percent" id="loader-percent">0%</span>
+        </p>
+      </div>
     </div>
-    <p class="loader-status">
-      <span class="prompt">$</span> loading<span class="loader-dots"></span>
-      <span class="loader-percent" id="loader-percent">0%</span>
-    </p>
-  </div>
-</div>
     <div id="toast-container" class="toast-container"></div>
     <div class="page">
       <!-- ================= NAV / EDITOR TOP BAR ================= -->
@@ -103,9 +103,13 @@
             <div class="hero-actions">
               <a href="#projects" class="btn btn-primary">View Projects →</a>
               <a href="#contact" class="btn btn-outline">Get in Touch</a>
-              <a href="HirenKeraliya_cv.pdf" download class="btn btn-outline btn-cv">
-    <i class="ri-download-2-line"></i> Download CV
-  </a>
+              
+                href="HirenKeraliya_cv.pdf"
+                download
+                class="btn btn-outline btn-cv"
+              >
+                <i class="ri-download-2-line"></i> Download CV
+              </a>
             </div>
             <div class="hero-stats">
               <div class="stat">
@@ -133,14 +137,49 @@
           <h2>About Me</h2>
         </div>
         <div class="about-grid">
-          <div class="about-text reveal" data-delay="0">
+          <!-- ================= ID CARD / LANYARD ================= -->
+          <div class="about-id-col reveal" data-delay="0">
+            <div class="lanyard-container">
+              <div class="lanyard-strap"></div>
+              <div class="breakaway-clip"></div>
+              <div class="metal-hook"></div>
+              <div class="id-card-holder">
+                <div class="card-slot"></div>
+                <div class="id-card-content">
+                  <div class="id-card-top">
+                    <span class="id-card-logo">HK<span class="id-cursor">_</span></span>
+                    <span class="id-card-badge"
+                      ><i class="ri-checkbox-circle-fill"></i> verified</span
+                    >
+                  </div>
+                  <div class="id-photo-wrapper">
+                    <img src="photo.jpg" alt="Hiren Keraliya" />
+                  </div>
+                  <div class="id-card-bottom">
+                    <span class="id-card-name">Hiren Keraliya</span>
+                    <span class="id-card-role"
+                      ><span class="prompt">&gt;</span> data_scientist</span
+                    >
+                    <div class="id-card-meta">
+                      <span class="id-card-id">ID · HK-2026</span>
+                      <span class="id-card-dot"></span>
+                      <span class="id-card-status">active</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ============ END ID CARD / LANYARD ============ -->
+
+          <div class="about-text reveal" data-delay="1">
             <p>
               I'm a
               <strong>Bachelor of Computer Application (BCA) graduate</strong>
               from Silver Oak University, Ahmedabad, with a growing focus on
               <strong
-                >data science, statistics and building models that actually work
-                on messy, real-world data.</strong
+                >data science, statistics and building models that actually
+                work on messy, real-world data.</strong
               >
             </p>
             <p>
@@ -152,11 +191,11 @@
             <p>
               After graduating, I completed a 6-month Data Science Consultant
               internship at <strong>Rubixe</strong>, where I worked across
-              proof-of-concept and client projects — cleaning data, engineering
-              features, training and evaluating models, and learning to read a
-              confusion matrix as carefully as an accuracy score. I followed
-              this up with certifications from NASSCOM FutureSkills Prime and
-              IABAC.
+              proof-of-concept and client projects — cleaning data,
+              engineering features, training and evaluating models, and
+              learning to read a confusion matrix as carefully as an accuracy
+              score. I followed this up with certifications from NASSCOM
+              FutureSkills Prime and IABAC.
             </p>
             <p>
               My goal: keep building toward a full-time career in
@@ -164,7 +203,26 @@
               dataset at a time.
             </p>
           </div>
-          <div class="about-panel editor-window reveal" data-delay="1">
+        </div>
+      </section>
+
+      <!-- ================= EXPERIENCE ================= -->
+      <section id="experience" class="section">
+        <div class="section-head reveal" data-delay="0">
+          <span class="tag-line"># experience.log</span>
+          <h2>Experience</h2>
+          <p class="section-sub">
+            git log --oneline --graph — the path from classroom to client
+            work.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <!-- ================= SKILLS PANEL ================= -->
+          <div
+            class="experience-skills editor-window reveal"
+            data-delay="0"
+          >
             <div class="editor-header">
               <span class="dot red"></span><span class="dot yellow"></span
               ><span class="dot green"></span>
@@ -201,93 +259,87 @@
               <div class="skill-group">
                 <span class="skill-group-title">workflow</span>
                 <div class="chip-row">
-                  <span class="chip chip-py">Jupyter</span>
-                  <span class="chip chip-blue">Git</span>
+                  <span class="chip chip-blue">VS Code</span>
+                  <span class="chip chip-blue">Jupyter</span>
+                  <span class="chip chip-py">Git</span>
                   <span class="chip chip-amber">EDA</span>
                   <span class="chip chip-green">Feature Engineering</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+          <!-- ============ END SKILLS PANEL ============ -->
 
-      <!-- ================= EXPERIENCE ================= -->
-      <section id="experience" class="section">
-        <div class="section-head reveal" data-delay="0">
-          <span class="tag-line"># experience.log</span>
-          <h2>Experience</h2>
-          <p class="section-sub">
-            git log --oneline --graph — the path from classroom to client work.
-          </p>
-        </div>
-
-        <div class="git-log">
-          <div class="commit reveal" data-delay="2">
-            <div class="commit-marker">
-              <span class="commit-dot"
-                ><i class="ri-graduation-cap-line"></i></span
-              ><span class="commit-line"></span>
-            </div>
-            <div class="commit-body">
-              <div class="commit-top">
-                <span class="commit-hash">BCA</span>
-                <span class="commit-date">2022 – 2025</span>
+          <div class="git-log">
+            <div class="commit reveal" data-delay="2">
+              <div class="commit-marker">
+                <span class="commit-dot"
+                  ><i class="ri-graduation-cap-line"></i></span
+                ><span class="commit-line"></span>
               </div>
-              <h3>Bachelor of Computer Application</h3>
-              <p class="commit-org">Silver Oak University, Ahmedabad</p>
-              <p class="commit-desc">
-                Graduated with a final-year thesis on
-                <strong>Krushi Manch</strong>, a multilingual agricultural web
-                platform built with a 4-person team — first hands-on experience
-                taking a project from requirements to a deployed system.
-              </p>
-            </div>
-          </div>
-
-          <div class="commit reveal" data-delay="0">
-            <div class="commit-marker">
-              <span class="commit-dot"><i class="ri-medal-line"></i></span
-              ><span class="commit-line"></span>
-            </div>
-            <div class="commit-body">
-              <div class="commit-top">
-                <span class="commit-hash">Certification</span>
-                <span class="commit-date">Jun 2026</span>
+              <div class="commit-body">
+                <div class="commit-top">
+                  <span class="commit-hash">BCA</span>
+                  <span class="commit-date">2022 – 2025</span>
+                </div>
+                <h3>Bachelor of Computer Application</h3>
+                <p class="commit-org">Silver Oak University, Ahmedabad</p>
+                <p class="commit-desc">
+                  Graduated with a final-year thesis on
+                  <strong>Krushi Manch</strong>, a multilingual agricultural
+                  web platform built with a 4-person team — first hands-on
+                  experience taking a project from requirements to a deployed
+                  system.
+                </p>
               </div>
-              <h3>Certified Data Scientist &amp; Data Science Foundation</h3>
-              <p class="commit-org">
-                NASSCOM FutureSkills Prime (Gold, 95%) · IABAC
-              </p>
-              <p class="commit-desc">
-                Cleared a Government of India–aligned Data Scientist assessment
-                with a Gold score, and earned the IABAC Data Science Foundation
-                certification — formalising skills built during the Rubixe
-                internship.
-              </p>
             </div>
-          </div>
 
-          <div class="commit reveal" data-delay="1">
-            <div class="commit-marker">
-              <span class="commit-dot"><i class="ri-briefcase-4-line"></i></span
-              ><span class="commit-line last"></span>
-            </div>
-            <div class="commit-body">
-              <div class="commit-top">
-                <span class="commit-hash">Data Science Internship</span>
-                <span class="commit-date">Aug 2025 – Feb 2026</span>
+            <div class="commit reveal" data-delay="0">
+              <div class="commit-marker">
+                <span class="commit-dot"><i class="ri-medal-line"></i></span
+                ><span class="commit-line"></span>
               </div>
-              <h3>Data Science Consultant Intern</h3>
-              <p class="commit-org">Rubixe · 6-month internship</p>
-              <p class="commit-desc">
-                Worked across proof-of-concept and client engagements — cleaning
-                data, engineering features, and building/evaluating
-                classification and regression models. Delivered the Customer
-                Churn client project plus four independent capstones (loan
-                default, insurance claims, vaccine prediction, COVID-19
-                forecasting).
-              </p>
+              <div class="commit-body">
+                <div class="commit-top">
+                  <span class="commit-hash">Certification</span>
+                  <span class="commit-date">Jun 2026</span>
+                </div>
+                <h3>Certified Data Scientist &amp; Data Science Foundation</h3>
+                <p class="commit-org">
+                  NASSCOM FutureSkills Prime (Gold, 95%) · IABAC
+                </p>
+                <p class="commit-desc">
+                  Cleared a Government of India–aligned Data Scientist
+                  assessment with a Gold score, and earned the IABAC Data
+                  Science Foundation certification — formalising skills built
+                  during the Rubixe internship.
+                </p>
+              </div>
+            </div>
+
+            <div class="commit reveal" data-delay="1">
+              <div class="commit-marker">
+                <span class="commit-dot"
+                  ><i class="ri-briefcase-4-line"></i
+                ></span>
+                <span class="commit-line last"></span>
+              </div>
+              <div class="commit-body">
+                <div class="commit-top">
+                  <span class="commit-hash">Data Science Internship</span>
+                  <span class="commit-date">Aug 2025 – Feb 2026</span>
+                </div>
+                <h3>Data Science Consultant Intern</h3>
+                <p class="commit-org">Rubixe · 6-month internship</p>
+                <p class="commit-desc">
+                  Worked across proof-of-concept and client engagements —
+                  cleaning data, engineering features, and
+                  building/evaluating classification and regression models.
+                  Delivered the Customer Churn client project plus four
+                  independent capstones (loan default, insurance claims,
+                  vaccine prediction, COVID-19 forecasting).
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -317,7 +369,8 @@
             </div>
             <div class="cell-code">
               <h3>
-                Customer Churn Prediction <span class="cell-id">PRCL-0017</span>
+                Customer Churn Prediction
+                <span class="cell-id">PRCL-0017</span>
               </h3>
               <p>
                 Predicting which telecom customers are likely to churn, using
@@ -366,10 +419,11 @@
                 <span class="cell-id">PRCP-1006</span>
               </h3>
               <p>
-                Predicting loan default risk from applicant and credit history
-                data. Compared Logistic Regression, Decision Tree, Random Forest
-                and XGBoost, tuning with GridSearchCV and evaluating on both
-                accuracy and ROC-AUC rather than accuracy alone.
+                Predicting loan default risk from applicant and credit
+                history data. Compared Logistic Regression, Decision Tree,
+                Random Forest and XGBoost, tuning with GridSearchCV and
+                evaluating on both accuracy and ROC-AUC rather than accuracy
+                alone.
               </p>
               <div class="chip-row">
                 <span class="chip chip-py">pandas</span
@@ -408,10 +462,10 @@
               </h3>
               <p>
                 Classifying likely insurance claims from a privacy-masked
-                feature set. Trained Logistic Regression, Decision Tree, Random
-                Forest and Gradient Boosting with SMOTE resampling — a good
-                lesson in why accuracy alone can be misleading on imbalanced
-                data.
+                feature set. Trained Logistic Regression, Decision Tree,
+                Random Forest and Gradient Boosting with SMOTE resampling — a
+                good lesson in why accuracy alone can be misleading on
+                imbalanced data.
               </p>
               <div class="chip-row">
                 <span class="chip chip-py">pandas</span
@@ -491,12 +545,12 @@
                 <span class="cell-id">PRCP-1023</span>
               </h3>
               <p>
-                Converted wide time-series country-level case data into global
-                daily totals, then forecast future case counts using Linear,
-                Ridge and Lasso Regression plus a tuned Random Forest.
-                Time-series forecasting on cumulative counts turned out to be a
-                much harder — and more humbling — problem than the earlier
-                classification tasks.
+                Converted wide time-series country-level case data into
+                global daily totals, then forecast future case counts using
+                Linear, Ridge and Lasso Regression plus a tuned Random
+                Forest. Time-series forecasting on cumulative counts turned
+                out to be a much harder — and more humbling — problem than
+                the earlier classification tasks.
               </p>
               <div class="chip-row">
                 <span class="chip chip-py">pandas</span
@@ -509,7 +563,9 @@
               <div class="metric-row">
                 <div class="metric">
                   <span class="metric-val">Ridge</span
-                  ><span class="metric-label">best baseline (lowest RMSE)</span>
+                  ><span class="metric-label"
+                    >best baseline (lowest RMSE)</span
+                  >
                 </div>
                 <div class="metric metric-warn">
                   <span class="metric-val">R² &lt; 0</span
@@ -537,12 +593,12 @@
                 <span class="cell-id">BCA Thesis · Silver Oak University</span>
               </h3>
               <p>
-                A multilingual agricultural web platform built with a 4-person
-                team to help farmers access reliable, region-specific crop
-                information — over 50 crop varieties, disease guidance, a rental
-                marketplace for equipment, and an EMI calculator. Full stack:
-                PHP/MySQL backend, HTML/CSS/JS frontend, role-based access for
-                farmers, buyers and admins.
+                A multilingual agricultural web platform built with a
+                4-person team to help farmers access reliable,
+                region-specific crop information — over 50 crop varieties,
+                disease guidance, a rental marketplace for equipment, and an
+                EMI calculator. Full stack: PHP/MySQL backend, HTML/CSS/JS
+                frontend, role-based access for farmers, buyers and admins.
               </p>
               <div class="chip-row">
                 <span class="chip chip-blue">PHP</span
@@ -598,14 +654,23 @@
             </p>
             <p class="cert-date">Effective 04 Jun 2026 · ID IAB1120179119</p>
           </div>
+          <div class="cert-card reveal" data-delay="3">
+            <i class="ri-award-fill cert-icon cert-icon-gold"></i>
+            <div class="cert-badge">Deloitte.</div>
+            <h3>Data Analytics </h3>
+            <p class="cert-issuer">Deloitte Data Analytics Job Simulation</p>
+            <p class="cert-date">
+              09 July 2026
+            </p>
+          </div>
           <div class="cert-card reveal" data-delay="2">
             <i class="ri-briefcase-4-line cert-icon"></i>
             <div class="cert-badge">INTERNSHIP</div>
             <h3>Data Science Consultant</h3>
             <p class="cert-issuer">Rubixe — Disruptive Technologies at Work</p>
             <p class="cert-date">
-              23 Aug 2025 – 23 Feb 2026 · 6-month internship, POC &amp; client
-              projects
+              23 Aug 2025 – 23 Feb 2026 · 6-month internship, POC &amp;
+              client projects
             </p>
           </div>
         </div>
@@ -637,9 +702,11 @@
 
               <ul class="contact-links">
                 <li>
-                  <span class="contact-icon"><i class="ri-mail-fill"></i></span>
-                  <a
-                    href="mailto:PUT_EMAIL_HERE"
+                  <span class="contact-icon"
+                    ><i class="ri-mail-fill"></i
+                  ></span>
+                  
+                   <a href="mailto:PUT_EMAIL_HERE"
                     class="contact-val"
                     id="contact-email"
                     >hp906054@gmail.com</a
@@ -649,8 +716,8 @@
                   <span class="contact-icon"
                     ><i class="ri-phone-fill"></i
                   ></span>
-                  <a
-                    href="tel:PUT_PHONE_HERE"
+                  
+                    <a href="tel:PUT_PHONE_HERE"
                     class="contact-val"
                     id="contact-phone"
                     >+91 63531 93330</a
@@ -660,8 +727,8 @@
                   <span class="contact-icon"
                     ><i class="ri-linkedin-box-fill"></i
                   ></span>
-                  <a
-                    href="https://www.linkedin.com/in/hiren-patel-440700259/"
+                  
+                   <a href="https://www.linkedin.com/in/hiren-keraliya-440700259/"
                     target="_blank"
                     rel="noopener"
                     class="contact-val"
@@ -673,8 +740,8 @@
                   <span class="contact-icon"
                     ><i class="ri-github-fill"></i
                   ></span>
-                  <a
-                    href="https://github.com/hiren223"
+                  
+                    <a href="https://github.com/hiren223"
                     target="_blank"
                     rel="noopener"
                     class="contact-val"
@@ -689,7 +756,10 @@
           </div>
 
           <!-- Right: contact form styled as a script -->
-          <div class="editor-window contact-form-window reveal" data-delay="1">
+          <div
+            class="editor-window contact-form-window reveal"
+            data-delay="1"
+          >
             <div class="editor-header">
               <span class="dot red"></span><span class="dot yellow"></span
               ><span class="dot green"></span>
